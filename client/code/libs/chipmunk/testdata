@@ -1,0 +1,181 @@
+
+You are referencing r1.x, r1.y, r2.x, and r2.y more than once.  You should dereference those into local variables.
+
+***
+Run 1: 10723
+Run 2: 10440
+Run 3: 10394
+Run 4: 10489
+Run 5: 10563
+PyramidTopple in 10497.333333333334 ms
+***
+
+You are referencing this.contacts a few times.  You should dereference it at the top, e.g. var contacts = this.contacts;
+
+***
+Run 1: 10559
+Run 2: 10348
+Run 3: 10366
+Run 4: 10399
+Run 5: 10405
+PyramidTopple in 10390 ms
+***
+
+You are accessing this.contacts.length, which is not optimal from all the stuff I've read on the WWW.  To make it worse, you're doing it in a loop.
+
+Something like:
+
+var contacts = this.contacts;
+for (var i=0, clen=contacts.length; i<len; i++) {
+ …
+PyramidTopple
+Run 1: 10646
+Run 2: 10543
+Run 3: 10459
+Run 4: 10513
+Run 5: 10529
+PyramidTopple in 10528.333333333334 ms
+
+
+Might gain you some performance gains.
+
+Where you calculate the same value more than once, 
+		var bias_x = n.x * (con.jBias - jbnOld);
+		var bias_y = n.y * (con.jBias - jbnOld);
+
+con.jBias - jbn0ld
+
+You might be able to calculate that once, saving you a subtract operation once per loop.  It could be quite a gain, actually.  Consider:
+
+var x = '1';
+x += 1;
+(results string concatenation, value '11')
+var x = 1;
+x += 1;
+(results in integer, value 2)
+It's doing something like typeof(x) to figure out whether to do addition or concatenation.
+
+
+PyramidTopple
+Run 1: 10533
+Run 2: 10342
+Run 3: 10229
+Run 4: 10396
+Run 5: 10370
+PyramidTopple in 10369.333333333334 ms
+
+
+Merry Christmas.
+
+
+
+
+Results:
+
+Base case:
+Run 1: 10596
+Run 2: 10441
+Run 3: 10317
+Run 4: 10433
+Run 5: 10341
+PyramidTopple in 10405 ms
+
+7,724
+2,726
+345
+25,918
+5,883
+650
+20,278
+5,887
+654
+1,275
+1,896
+2,045
+9,933
+22,130
+1,740
+2,700
+53
+4,971
+
+7713
+2724.6666666666665
+342.3333333333333
+25085.333333333332
+5757
+640
+20196.666666666668
+5760
+646.3333333333334
+1277.3333333333333
+1877.6666666666667
+1993.3333333333333
+9713.666666666666
+21501.333333333332
+1759.3333333333333
+2671
+52.666666666666664
+5000.666666666667
+
+7919.666666666667
+2786
+351.6666666666667
+25859
+5887
+656.6666666666666
+20230
+5869.333333333333
+657.6666666666666
+1309.6666666666667
+1912
+2031
+9984.333333333334
+22429
+1766
+2691.6666666666665
+53.666666666666664
+5127.666666666667
+
+
+
+PyramidTopple stabolizing num=2000
+
+Run 1: 8890
+Run 2: 8704
+Run 3: 8669
+Run 4: 8672
+Run 5: 8755
+Run 6: 8748
+Run 7: 8734
+Run 8: 8738
+Run 9: 8758
+PyramidTopple in 8740 ms
+
+vects: 17627184
+contacts: 2684943
+node: 1120293
+leaf: 4437
+bb: 2214
+applyImpulse: 43025850
+applyContact: 80385750
+
+7551.666666666667
+2677
+340.3333333333333
+25227.333333333332
+5690.333333333333
+632.6666666666666
+19675
+5659
+635.3333333333334
+1267.3333333333333
+1886.6666666666667
+1979.6666666666667
+9650
+21296.666666666668
+1728
+2557
+52
+5060
+

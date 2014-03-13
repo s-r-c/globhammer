@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+  <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+   <meta name="viewport" content="width=device-width">
+
+   <title> globHammer </title>
+
+   <meta name="description"   content="First World" />
+   <meta name="keywords"      content="art, interactive" />
+   <meta name="author"        content="globHAMMER"/>
+  
+  <SocketStream/>
+  
+  <script>
+
+    // I DONT LIKE THIS 
+    // THIS NEEDS TO BE AN EXTERNAL SCRIPT PWEEZE
+    // MAYBER CALL IT INDEX
+    var GLOB    = {};
+    GLOB.art    = {};
+    GLOB.glob = {};
+    GLOB.rock = null;
+    GLOB.src    = "client/static/";
+
+    //GLOB.height = 720;
+    //GLOB.width  = 1280;
+    //GLOB.height = 1080;
+    //GLOB.width  = 1920;
+    //GLOB.world  = "720/world0.js";
+    //GLOB.title  = null;
+
+    GLOB.height = 720;
+    GLOB.width  = 1920;
+    GLOB.srcFolder    = 'roomOfDoom/';    
+    GLOB.world        =  GLOB.srcFolder + 'index.js';
+    
+    var art = GLOB.art;
+    
+    var srcFolder     = 'ui/title/';
+    art.logo          = srcFolder + 'logo.png';
+    art.star          = srcFolder + 'star.png';
+    art.skull         = srcFolder + 'skull.png';
+    art.red           = srcFolder + 'red.png';
+    art.blue          = srcFolder + 'blue.png';
+    art.green         = srcFolder + 'green.png';
+    
+    GLOB.awake = function( glob ){
+      GLOB.glob = glob;
+      GLOB.glob.height    = GLOB.height;
+      GLOB.glob.width     = GLOB.width;
+
+      GLOB.glob.awake();
+      GLOB.glob.world =  GLOB.src + GLOB.world;
+
+      var title = GLOB.title = GLOB.glob.createUI( 'Title' );
+      title.graphics  = [ art.logo, art.star, art.skull, art.red, art.blue, art.green ];
+      glob.uiLayer.addChild( title.display );
+    };
+
+    //
+
+
+    </script>
+
+
+  <style>
+
+      body {
+          background-color: #000000;
+          overflow: hidden;
+          margin: 0;
+      }
+
+      .center-div
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 1980px;
+  height: 720px;
+  background-color: #ccc;
+}
+
+
+  </style>
+  
+  </head>
+ 
+  <body>
+ 
+ <div id='center'  class="center-div">
+  <div id='content' />
+  <canvas id = 'canvas2' height='720' width='1920'   />
+</div>
+  
+  
+  
+  </body>
+
+</html>

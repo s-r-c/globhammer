@@ -1,0 +1,59 @@
+{
+  "name": "glob",
+  "subdomain": "globulus.hammerglob",
+  "domains": [
+    "hammerglob.com",
+    "hammerglob.com"
+  ],
+  "version": "0.0.1-60",
+  "author": {
+    "name": "globHammer",
+    "email": "globHammer@gmail.com"
+  },
+  "description": "Art for Glob's Sake",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/globhammer"
+  },
+  "keywords": [
+    "nodeapps",
+    "helloworld"
+  ],
+  "homepage": "http://hammerGlob.com",
+  "scripts": {
+    "start": "start.js"
+  },
+  "contributors": [
+    {
+      "name": "Brad Henderson",
+      "email": "b3r4d0@gmail.com"
+    },
+    {
+      "name": "Ryan Ford",
+      "email": "rfizord@gmail.com"
+    },
+    {
+      "name": "XXXX",
+      "email": "XXXX@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "socketstream": "0.3.x",
+    "ss-stylus": "0.1.x",
+    "ss-hogan": "0.1.x",
+    "express": "0.x.x"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.4"
+  },
+  "bugs": {
+    "url": "https://github.com/nodeapps/helloworld/issues"
+  },
+  "analyze": false,
+  "readme": "read",
+  "dist": {
+    "shasum": "bfcd702083c13f1a1e6d5b35b2d94c6e6184b6bd"
+  }
+}

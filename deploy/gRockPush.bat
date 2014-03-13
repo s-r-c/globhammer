@@ -1,3 +1,0 @@
-cd globRock
-git push 
-
